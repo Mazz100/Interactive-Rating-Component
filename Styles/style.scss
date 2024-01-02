@@ -2,6 +2,7 @@
 $body-main-bg-color: hsl(216, 12%, 8%);
 $card-ui-bg-color: hsl(213, 19%, 18%);
 $rating-bg-color: hsl(218, 17%, 22%);
+$rate-selection-color: hsl(217, 12%, 63%);
 $primary-interactive: hsl(25, 97%, 53%);
 @use 'reset';
 
@@ -50,35 +51,54 @@ body {
     }
 }
 
-.rating {
-    ul {
-        @include Flex(row);
-        justify-content: space-between;
-        list-style-type: none;
-        padding: 0;
-        margin: 24px 0 24px 0;
-    }
+.rate-container {
+    @include Flex(row);
+    justify-content: space-between;
+    margin: 16px 0 8px 0;
 
-    li {
-        color: white;
-        opacity: 50%;
-        padding: 10px;
-    }
+    .input-wrapper {
+        .visually-hidden {
+            //visibility: hidden;
+        }
 
-    button {
-        background-color: $rating-bg-color;
-        cursor: pointer;
-        border: none;
-        border-radius: 50%;
-        transition: all 100ms linear;
+        .radio-rate {
+            opacity: 0.5;
+        }
     }
 }
 
-.rating {
-    button:hover {
-        background-color: $primary-interactive;
-    }
+//Hiding the default radio for browser and styling custome one
+input[type="radio"] {
+    @include Flex(column);
+    appearance: none;
+    background-color: $rating-bg-color;
+    margin: 0;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
 }
+
+input[type="radio"]::before {
+    content: '';
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 150ms transform ease-in-out;
+    box-shadow: inset 2em 2em $rate-selection-color;
+}
+
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
+    background-color: $primary-interactive;
+    opacity: 1;
+}
+
 
 .submit-button {
     cursor: pointer;
@@ -89,10 +109,11 @@ body {
     border-radius: 16px;
     background-color: $primary-interactive;
     color: white;
-    transition: all 200ms 100ms linear;
+    transition: all 150ms 100ms linear;
 }
 
 .submit-button:hover {
+    background-color: transparent;
     background-color: white;
     color: $primary-interactive;
 }
@@ -134,6 +155,6 @@ body {
 }
 
 .UI-2-visibility {
-    //display: none;
+    display: none;
 
 }

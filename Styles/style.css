@@ -129,31 +129,51 @@ body {
   opacity: 50%;
 }
 
-.rating ul {
+.rate-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
-  margin: 24px 0 24px 0;
+  margin: 16px 0 8px 0;
 }
-.rating li {
-  color: white;
-  opacity: 50%;
-  padding: 10px;
-}
-.rating button {
-  background-color: hsl(218, 17%, 22%);
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  transition: all 100ms linear;
+.rate-container .input-wrapper .radio-rate {
+  opacity: 0.5;
 }
 
-.rating button:hover {
+input[type=radio] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: hsl(218, 17%, 22%);
+  margin: 0;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+}
+
+input[type=radio]::before {
+  content: "";
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 150ms transform ease-in-out;
+  box-shadow: inset 2em 2em hsl(217, 12%, 63%);
+}
+
+input[type=radio]:checked::before {
+  transform: scale(1);
+}
+
+input[type=radio]:hover {
+  cursor: pointer;
   background-color: hsl(25, 97%, 53%);
+  opacity: 1;
 }
 
 .submit-button {
@@ -165,10 +185,11 @@ body {
   border-radius: 16px;
   background-color: hsl(25, 97%, 53%);
   color: white;
-  transition: all 200ms 100ms linear;
+  transition: all 150ms 100ms linear;
 }
 
 .submit-button:hover {
+  background-color: transparent;
   background-color: white;
   color: hsl(25, 97%, 53%);
 }
@@ -198,4 +219,8 @@ body {
 .UI-2-wrapper p {
   font-size: 0.875rem;
   opacity: 0.5;
+}
+
+.UI-2-visibility {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
