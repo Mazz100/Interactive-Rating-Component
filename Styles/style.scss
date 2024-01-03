@@ -2,7 +2,7 @@
 $body-main-bg-color: hsl(216, 12%, 8%);
 $card-ui-bg-color: hsl(213, 19%, 18%);
 $rating-bg-color: hsl(218, 17%, 22%);
-$rate-selection-color: hsl(217, 12%, 63%);
+$checked-color: hsl(217, 12%, 63%);
 $primary-interactive: hsl(25, 97%, 53%);
 @use 'reset';
 
@@ -49,56 +49,46 @@ body {
         font-size: 0.875rem;
         opacity: 50%;
     }
+
 }
 
 .rate-container {
     @include Flex(row);
     justify-content: space-between;
-    margin: 16px 0 8px 0;
+    margin: 24px 0 24px 0;
 
     .input-wrapper {
+
+        //Input visibility
         .visually-hidden {
-            //visibility: hidden;
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
         }
 
         .radio-rate {
             opacity: 0.5;
+            background-color: $rating-bg-color;
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        input:checked+.radio-rate {
+            background-color: $checked-color;
+            opacity: inherit;
+        }
+
+        input:hover+.radio-rate,
+        input:focus-visible+.radio-rate {
+            cursor: pointer;
+            background-color: $primary-interactive;
+            opacity: 1;
         }
     }
 }
-
-//Hiding the default radio for browser and styling custome one
-input[type="radio"] {
-    @include Flex(column);
-    appearance: none;
-    background-color: $rating-bg-color;
-    margin: 0;
-    height: 2.5em;
-    width: 2.5em;
-    border-radius: 50%;
-}
-
-input[type="radio"]::before {
-    content: '';
-    height: 2.5em;
-    width: 2.5em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 150ms transform ease-in-out;
-    box-shadow: inset 2em 2em $rate-selection-color;
-}
-
-
-input[type="radio"]:checked::before {
-    transform: scale(1);
-}
-
-input[type="radio"]:hover {
-    cursor: pointer;
-    background-color: $primary-interactive;
-    opacity: 1;
-}
-
 
 .submit-button {
     cursor: pointer;
@@ -116,6 +106,7 @@ input[type="radio"]:hover {
     background-color: transparent;
     background-color: white;
     color: $primary-interactive;
+    outline: 1px solid $primary-interactive;
 }
 
 .UI-1-visibility {

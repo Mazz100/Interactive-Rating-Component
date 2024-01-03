@@ -135,42 +135,28 @@ body {
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  margin: 16px 0 8px 0;
+  margin: 24px 0 24px 0;
+}
+.rate-container .input-wrapper .visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 .rate-container .input-wrapper .radio-rate {
   opacity: 0.5;
-}
-
-input[type=radio] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   background-color: hsl(218, 17%, 22%);
-  margin: 0;
-  height: 2.5em;
-  width: 2.5em;
+  padding: 12px;
   border-radius: 50%;
 }
-
-input[type=radio]::before {
-  content: "";
-  height: 2.5em;
-  width: 2.5em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 150ms transform ease-in-out;
-  box-shadow: inset 2em 2em hsl(217, 12%, 63%);
+.rate-container .input-wrapper input:checked + .radio-rate {
+  background-color: hsl(217, 12%, 63%);
+  opacity: inherit;
 }
-
-input[type=radio]:checked::before {
-  transform: scale(1);
-}
-
-input[type=radio]:hover {
+.rate-container .input-wrapper input:hover + .radio-rate,
+.rate-container .input-wrapper input:focus-visible + .radio-rate {
   cursor: pointer;
   background-color: hsl(25, 97%, 53%);
   opacity: 1;
@@ -192,6 +178,7 @@ input[type=radio]:hover {
   background-color: transparent;
   background-color: white;
   color: hsl(25, 97%, 53%);
+  outline: 1px solid hsl(25, 97%, 53%);
 }
 
 .UI-2-wrapper {
