@@ -138,8 +138,9 @@ body {
 }
 
 .UI-1-visibility {
-    //display: none;
+    display: none;
 }
+
 
 .UI-2-wrapper {
     @include Flex(column);
