@@ -52,15 +52,16 @@ body {
 
 }
 
-.rate-fieldset{
+.rate-fieldset {
     @include Flex(row);
     justify-content: space-between;
-    margin: 16px 0 8px 0;
+    margin: 16px 0 16px 0;
+    padding: 0;
     border: none;
 
-    .field-caption-visibility{
+    .field-caption-visibility {
         position: absolute;
-        clip: rect(0,0,0);
+        clip: rect(0, 0, 0);
         clip-path: inset(50%);
         width: 1px;
         height: 1px;
@@ -89,11 +90,12 @@ body {
         padding: 1em;
         border-radius: 50%;
         text-align: center;
-        
+
         display: grid;
         place-content: center;
         height: 100%;
         width: 100%;
+        min-width: 2.7rem;
     }
 
     //Maximum widht, height for inputs
@@ -125,7 +127,7 @@ body {
     border-radius: 16px;
     background-color: $primary-interactive;
     color: white;
-    transition: all 150ms 100ms linear;
+    transition: all 150ms linear;
 }
 
 .submit-button:hover {
@@ -136,7 +138,7 @@ body {
 }
 
 .UI-1-visibility {
-    // display: none;
+    //display: none;
 }
 
 .UI-2-wrapper {
@@ -152,7 +154,7 @@ body {
         color: $primary-interactive;
         font-size: 0.875rem;
         font-weight: 400;
-        margin-top: 16px;
+        margin-top: 20px;
         padding: 8px;
         border-radius: 16px;
     }

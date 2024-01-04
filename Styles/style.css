@@ -135,7 +135,8 @@ body {
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  margin: 16px 0 8px 0;
+  margin: 16px 0 16px 0;
+  padding: 0;
   border: none;
 }
 .rate-fieldset .field-caption-visibility {
@@ -172,6 +173,7 @@ body {
   place-content: center;
   height: 100%;
   width: 100%;
+  min-width: 2.7rem;
 }
 .input-wrapper input {
   width: 100%;
@@ -198,7 +200,7 @@ body {
   border-radius: 16px;
   background-color: hsl(25, 97%, 53%);
   color: white;
-  transition: all 150ms 100ms linear;
+  transition: all 150ms linear;
 }
 
 .submit-button:hover {
@@ -223,7 +225,7 @@ body {
   color: hsl(25, 97%, 53%);
   font-size: 0.875rem;
   font-weight: 400;
-  margin-top: 16px;
+  margin-top: 20px;
   padding: 8px;
   border-radius: 16px;
 }
