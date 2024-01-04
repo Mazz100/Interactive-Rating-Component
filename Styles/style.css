@@ -129,34 +129,61 @@ body {
   opacity: 50%;
 }
 
-.rate-container {
+.rate-fieldset {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  margin: 24px 0 24px 0;
+  margin: 16px 0 8px 0;
+  border: none;
 }
-.rate-container .input-wrapper .visually-hidden {
+.rate-fieldset .field-caption-visibility {
   position: absolute;
-  left: -10000px;
-  top: auto;
+  clip: rect(0, 0, 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
-.rate-container .input-wrapper .radio-rate {
-  opacity: 0.5;
-  background-color: hsl(218, 17%, 22%);
-  padding: 12px;
-  border-radius: 50%;
+
+.input-wrapper {
+  position: relative;
+  aspect-ratio: 1;
 }
-.rate-container .input-wrapper input:checked + .radio-rate {
+.input-wrapper .visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.input-wrapper .radio-rate {
+  opacity: 0.4;
+  background-color: hsl(218, 17%, 22%);
+  padding: 1em;
+  border-radius: 50%;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 100%;
+}
+.input-wrapper input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.input-wrapper input:checked + .radio-rate {
   background-color: hsl(217, 12%, 63%);
   opacity: inherit;
 }
-.rate-container .input-wrapper input:hover + .radio-rate,
-.rate-container .input-wrapper input:focus-visible + .radio-rate {
+.input-wrapper input:hover + .radio-rate,
+.input-wrapper input:focus-visible + .radio-rate {
   cursor: pointer;
   background-color: hsl(25, 97%, 53%);
   opacity: 1;

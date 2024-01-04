@@ -52,41 +52,67 @@ body {
 
 }
 
-.rate-container {
+.rate-fieldset{
     @include Flex(row);
     justify-content: space-between;
-    margin: 24px 0 24px 0;
+    margin: 16px 0 8px 0;
+    border: none;
 
-    .input-wrapper {
+    .field-caption-visibility{
+        position: absolute;
+        clip: rect(0,0,0);
+        clip-path: inset(50%);
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+}
 
-        //Input visibility
-        .visually-hidden {
-            position: absolute;
-            left: -10000px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
+.input-wrapper {
+    position: relative;
+    aspect-ratio: 1;
 
-        .radio-rate {
-            opacity: 0.5;
-            background-color: $rating-bg-color;
-            padding: 12px;
-            border-radius: 50%;
-        }
+    //Input visibility
+    .visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
 
-        input:checked+.radio-rate {
-            background-color: $checked-color;
-            opacity: inherit;
-        }
+    .radio-rate {
+        opacity: 0.4;
+        background-color: $rating-bg-color;
+        padding: 1em;
+        border-radius: 50%;
+        text-align: center;
+        
+        display: grid;
+        place-content: center;
+        height: 100%;
+        width: 100%;
+    }
 
-        input:hover+.radio-rate,
-        input:focus-visible+.radio-rate {
-            cursor: pointer;
-            background-color: $primary-interactive;
-            opacity: 1;
-        }
+    //Maximum widht, height for inputs
+    input {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    input:checked+.radio-rate {
+        background-color: $checked-color;
+        opacity: inherit;
+    }
+
+    input:hover+.radio-rate,
+    input:focus-visible+.radio-rate {
+        cursor: pointer;
+        background-color: $primary-interactive;
+        opacity: 1;
     }
 }
 
@@ -112,9 +138,6 @@ body {
 .UI-1-visibility {
     // display: none;
 }
-
-
-
 
 .UI-2-wrapper {
     @include Flex(column);
@@ -147,5 +170,4 @@ body {
 
 .UI-2-visibility {
     display: none;
-
 }
