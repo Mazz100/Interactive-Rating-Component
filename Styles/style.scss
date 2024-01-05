@@ -62,7 +62,7 @@ body {
     padding: 0;
     border: none;
 
-    .field-caption-visibility {
+    .legend-visually-hidden {
         position: absolute;
         clip: rect(0, 0, 0);
         clip-path: inset(50%);
@@ -187,13 +187,15 @@ input:focus-visible+.radio-rate {
     background-color: $card-ui-bg-color;
     padding: 8px;
     width: 100%;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     text-align: center;
 
 }
 
 .attribution a {
     color: hsl(228, 72%, 62%);
+    text-decoration: none;
+    
 }
 
 @media(min-width: 50rem) {
