@@ -1,7 +1,7 @@
 //Variables
 $body-main-bg-color: hsl(216, 12%, 8%);
 $card-ui-bg-color: hsl(213, 19%, 18%);
-$rating-bg-color: hsl(218, 17%, 22%);
+$icon-bg-color: hsl(218, 17%, 22%);
 $checked-color: hsl(217, 12%, 63%);
 $primary-interactive: hsl(25, 97%, 53%);
 @use 'reset';
@@ -11,7 +11,6 @@ $primary-interactive: hsl(25, 97%, 53%);
     flex-direction: $direction;
     align-items: center;
     justify-content: center;
-
 }
 
 body {
@@ -20,6 +19,7 @@ body {
     font-size: 0.975rem;
     background-color: $body-main-bg-color;
     color: white;
+
 }
 
 .wrapper {
@@ -32,12 +32,15 @@ body {
     background-color: $card-ui-bg-color;
     padding: 24px;
     border-radius: 16px;
+    box-shadow: 4px 4px 5px hsla(0, 0%, 0%, 0.3);
 
-    .star {
-        background-color: $rating-bg-color;
+    .star-image {
+        background-color: $icon-bg-color;
         margin: 0 0 24px 0;
         padding: 12px;
         border-radius: 50%;
+        width: max-content;
+        height: max-content;
     }
 
     .header {
@@ -55,7 +58,7 @@ body {
 .rate-fieldset {
     @include Flex(row);
     justify-content: space-between;
-    margin: 16px 0 16px 0;
+    margin: 24px 0 24px 0;
     padding: 0;
     border: none;
 
@@ -83,39 +86,41 @@ body {
         white-space: nowrap;
         width: 1px;
     }
+}
 
-    .radio-rate {
-        opacity: 0.4;
-        background-color: $rating-bg-color;
-        padding: 1em;
-        border-radius: 50%;
-        text-align: center;
+.radio-rate {
+    opacity: 0.4;
+    background-color: $icon-bg-color;
+    padding: 1em;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 150ms ease-in-out;
 
-        display: grid;
-        place-content: center;
-        height: 100%;
-        width: 100%;
-        min-width: 2.7rem;
-    }
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    min-width: 2.7rem;
+}
 
-    //Maximum widht, height for inputs
-    input {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
+//Maximum widht, height for inputs
+input {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 
-    input:checked+.radio-rate {
-        background-color: $checked-color;
-        opacity: inherit;
-    }
+input:checked+.radio-rate {
+    background-color: $checked-color;
+    opacity: inherit;
+}
 
-    input:hover+.radio-rate,
-    input:focus-visible+.radio-rate {
-        cursor: pointer;
-        background-color: $primary-interactive;
-        opacity: 1;
-    }
+input:hover+.radio-rate,
+input:focus-visible+.radio-rate {
+    cursor: pointer;
+    background-color: $primary-interactive;
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .submit-button {
@@ -137,6 +142,7 @@ body {
     outline: 1px solid $primary-interactive;
 }
 
+//Adding visibility class dynamically with JS
 .UI-1-visibility {
     display: none;
 }
@@ -151,7 +157,7 @@ body {
     text-align: center;
 
     .header-num-title {
-        background-color: $rating-bg-color;
+        background-color: $icon-bg-color;
         color: $primary-interactive;
         font-size: 0.875rem;
         font-weight: 400;
@@ -171,6 +177,28 @@ body {
     }
 }
 
+//Removing visibility class dynamically with JS
 .UI-2-visibility {
     display: none;
+}
+
+//Footer
+.attribution {
+    background-color: $card-ui-bg-color;
+    padding: 8px;
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: center;
+
+}
+
+.attribution a {
+    color: hsl(228, 72%, 62%);
+}
+
+@media(min-width: 50rem) {
+    .wrapper {
+        max-width: 23rem;
+    }
+
 }
